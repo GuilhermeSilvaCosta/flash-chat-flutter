@@ -1,13 +1,24 @@
+import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
+
+  static String id = 'welcome_screen';
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+
+  void handleLoginButton() {
+    Navigator.pushNamed(
+      context,
+      LoginScreen.id
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,9 +54,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.circular(30.0),
                 child: MaterialButton(
-                  onPressed: () {
-                    //Go to login screen.
-                  },
+                  onPressed: handleLoginButton,
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(
