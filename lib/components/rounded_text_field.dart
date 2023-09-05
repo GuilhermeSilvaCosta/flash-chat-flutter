@@ -5,14 +5,21 @@ class RoundedTextField extends StatelessWidget {
     super.key, 
     this.hint,
     this.onChanged,
+    this.obscureText,
+    this.keyboardType,
   });
 
   final String? hint;
   final Function(String)? onChanged;
+  final bool? obscureText;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      keyboardType: keyboardType,
+      obscureText: obscureText ?? false,
+      textAlign: TextAlign.center,
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: hint,
